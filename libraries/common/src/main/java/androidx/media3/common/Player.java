@@ -924,6 +924,13 @@ public interface Player {
     default void onTracksChanged(Tracks tracks) {}
 
     /**
+     * Called when the media titles change.
+     *
+     * @param titles The available media titles.
+     */
+    default void onMediaTitlesChanged(List<MediaTitle> titles) {}
+
+    /**
      * Called when the value of {@link Player#getCurrentMediaChapters()} changes.
      *
      * <p>{@link #onEvents(Player, Events)} will also be called to report this event along with
@@ -3008,6 +3015,15 @@ public interface Player {
    * @see Listener#onTracksChanged(Tracks)
    */
   Tracks getCurrentTracks();
+
+  /**
+   * Returns the current media titles.
+   *
+   * <p>Added by the self-build patch: the upstream FongMi fork keeps this API private.
+   */
+  default List<MediaTitle> getCurrentMediaTitles() {
+    return Collections.emptyList();
+  }
 
   /**
    * Returns the available seekable chapters for the current media item, or an empty list if none
