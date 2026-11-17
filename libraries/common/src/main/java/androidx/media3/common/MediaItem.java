@@ -83,6 +83,7 @@ public final class MediaItem {
     @Nullable private AdsConfiguration adsConfiguration;
     @Nullable private Object tag;
     private long imageDurationMs;
+    private int decode;
     @Nullable private MediaMetadata mediaMetadata;
     // TODO: Change this to LiveConfiguration once all the deprecated individual setters
     // are removed.
@@ -135,6 +136,12 @@ public final class MediaItem {
      * <p>By default {@link #DEFAULT_MEDIA_ID} is used.
      */
     @CanIgnoreReturnValue
+    /** 兼容层：FongMi 分支在 MediaItem 上携带解码模式。 */
+    public Builder setDecode(int decode) {
+      this.decode = decode;
+      return this;
+    }
+
     public Builder setMediaId(String mediaId) {
       this.mediaId = checkNotNull(mediaId);
       return this;

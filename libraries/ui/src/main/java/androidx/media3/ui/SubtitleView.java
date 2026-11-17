@@ -45,6 +45,35 @@ import java.util.List;
 @UnstableApi
 public final class SubtitleView extends FrameLayout {
 
+  // 兼容层：FongMi 分支使用的字幕尺寸/位置增量接口
+  private float patchTextSize = 1f;
+  private float patchPosition = 0f;
+
+  public float getTextSize() {
+    return patchTextSize;
+  }
+
+  public void addTextSize(float delta) {
+    patchTextSize += delta;
+  }
+
+  public void subTextSize(float delta) {
+    patchTextSize -= delta;
+  }
+
+  public float getPosition() {
+    return patchPosition;
+  }
+
+  public void addPosition(float delta) {
+    patchPosition += delta;
+  }
+
+  public void subPosition(float delta) {
+    patchPosition -= delta;
+  }
+
+
   /**
    * An output for displaying subtitles.
    *

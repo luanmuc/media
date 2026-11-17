@@ -38,6 +38,10 @@ import java.util.List;
 @UnstableApi
 public final class DefaultTsPayloadReaderFactory implements TsPayloadReader.Factory {
 
+  /** 兼容层：FongMi 分支使用的 DTS-HD 音频流开关。 */
+  public static final int FLAG_ENABLE_HDMV_DTS_AUDIO_STREAMS = 1 << 25;
+
+
   /**
    * Flags controlling elementary stream readers' behavior. Possible flag values are {@link
    * #FLAG_IGNORE_AAC_STREAM}, {@link #FLAG_IGNORE_H264_STREAM}, {@link
